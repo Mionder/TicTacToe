@@ -1,18 +1,24 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 
-export default class ModalWindow extends Component{
+export default class ModalWindow extends Component {
     restartGame = () => {
         window.location.reload();
     }
-    render(){
-        const {winner} = this.props;
-        return(
+
+    render() {
+        const { winner } = this.props;
+        return (
             <div className="modal__winner">
                 <div className="modal__wrapper">
-                <h4 className="modal__title">Winner: <span className="modal__player-winner">{winner}</span></h4>
-                <button className="modal__winner-button" onClick={this.restartGame}>Play again</button>
+                    <h4 className="modal__title">Winner: <span className="modal__player-winner">{winner}</span></h4>
+                    <button className="modal__winner-button" onClick={this.restartGame}>Play again</button>
                 </div>
-          </div>
-        )
+            </div>
+        );
     }
 }
+
+ModalWindow.propTypes = {
+    winner: PropTypes.string,
+};
